@@ -3127,7 +3127,7 @@ vte_terminal_set_selection_block_mode(VteTerminal *terminal, gboolean block_mode
 void
 vte_terminal_select_text(VteTerminal *terminal,
 		         long start_col, long start_row,
-			 long end_col, long end_row)
+			 long end_col, long end_row) noexcept
 {
 	g_return_if_fail (VTE_IS_TERMINAL (terminal));
 
@@ -3135,7 +3135,7 @@ vte_terminal_select_text(VteTerminal *terminal,
 }
 
 char *
-vte_terminal_get_selection(VteTerminal *terminal)
+vte_terminal_get_selection(VteTerminal *terminal) noexcept
 {
 	g_return_val_if_fail(VTE_IS_TERMINAL(terminal), NULL);
 	return g_strdup (IMPL(terminal)->m_selection[VTE_SELECTION_PRIMARY]->str);
@@ -3183,7 +3183,7 @@ catch (...)
  */
 void
 vte_terminal_set_cursor_position(VteTerminal *terminal,
-		                 long column, long row)
+		                 long column, long row) noexcept
 {
 	g_return_if_fail(VTE_IS_TERMINAL(terminal));
 
